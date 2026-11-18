@@ -17,8 +17,7 @@ The fonts in `docs/assets/fonts/` (Nunito, IBM Plex Serif, IBM Plex Mono) are un
 
 ## Decisions (Cameron Weller, 2026-11-18)
 
-1. The private tutor ad is played on the page, and its end card names `robotutor.ai`. The film section is held back
-   until the revised (daylight) cut of the ad is approved; see "The film" below.
+1. The private tutor ad is played on the page, and its end card names `robotutor.ai`. Cut 8 went onto the page on 2026-11-18.
 2. Form entries are stored in Cameron's Cloudflare account (a free Worker and a D1 database), because GitHub
    Pages cannot receive form entries itself.
 3. `robotutor.ai` points to this page as soon as the page works end to end. The product's servers are left
@@ -69,10 +68,9 @@ Edit the files in `docs/` and push to `main`; GitHub Pages republishes within a 
 
 ## The film
 
-The film section is not on the page yet. To add it: put the web encode at
-`docs/assets/robotutor-private-tutor.mp4` and a still at `docs/assets/film-poster.jpg`, and paste the
-`<section class="film">` block (kept beside this clone in `.pending/film-section.html`, which Git ignores) into
-`docs/index.html` where the comment marks its place. `site.js` and `site.css` already support it.
+The page plays cut 8 of the private tutor ad (42 s, approved by Cameron on 2026-11-18). To replace it, overwrite
+`docs/assets/robotutor-private-tutor.mp4` (a web encode: 1080p H.264, about 6 MB, `+faststart`) and
+`docs/assets/film-poster.jpg`.
 
 ## Look
 

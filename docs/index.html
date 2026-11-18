@@ -123,7 +123,31 @@
 				</div>
 			</section>
 
-			<!-- The film section is added here once the revised cut of the ad is approved: see README, "The film". -->
+			<section class="film" aria-labelledby="film-title">
+				<p class="kick">The film</p>
+				<h2 id="film-title">See the private tutor at work.</h2>
+				<div class="player">
+					<video
+						id="film"
+						controls
+						playsinline
+						preload="none"
+						poster="assets/film-poster.jpg"
+						width="1920"
+						height="1080"
+						aria-describedby="film-note"
+					>
+						<source src="assets/robotutor-private-tutor.mp4" type="video/mp4" />
+					</video>
+					<a id="film-cta" class="film-cta" href="#interest" hidden>Register your interest</a>
+				</div>
+				<p id="film-note" class="film-note">
+					A 42-second film with music and no narration. A small purple robot with a big square head works beside one
+					student at a desk: it asks, it listens, and it never loses patience, until the student can explain the
+					idea themselves.
+					<a href="#interest">Register your interest</a>
+				</p>
+			</section>
 		</main>
 
 		<footer class="foot">
