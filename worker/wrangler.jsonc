@@ -1,0 +1,23 @@
+// Cloudflare Worker that receives the Robotutor interest form. Free plan; no secrets.
+// Deploy from this folder: npx wrangler deploy
+{
+	"$schema": "./node_modules/wrangler/config-schema.json",
+	"name": "robotutor-interest",
+	"main": "index.js",
+	"compatibility_date": "2026-11-01",
+	"workers_dev": true,
+	"preview_urls": false,
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "robotutor-interest",
+			"database_id": "69f58930-a784-4b21-a2fa-924aeebb7795"
+		}
+	],
+	"vars": {
+		"ALLOWED_ORIGINS": "https://robotutor.ai,https://www.robotutor.ai,https://weller-precision-industries.github.io",
+		"SITE_URL": "https://robotutor.ai/"
+	},
+	// No request logs are kept, so no email address can end up in them.
+	"observability": { "enabled": false }
+}

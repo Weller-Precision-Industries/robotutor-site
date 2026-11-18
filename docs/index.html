@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!-- The form endpoint appears three times: here (connect-src, form-action), in the form's action, and in assets/config.js. -->
+		<meta
+			http-equiv="Content-Security-Policy"
+			content="default-src 'none'; img-src 'self'; media-src 'self'; font-src 'self'; style-src 'self'; script-src 'self'; connect-src __ENDPOINT_ORIGIN__; form-action __ENDPOINT_ORIGIN__; base-uri 'none'"
+		/>
+		<meta name="referrer" content="strict-origin-when-cross-origin" />
+		<meta name="color-scheme" content="dark" />
+		<meta name="theme-color" content="#080a10" />
+		<title>Robotutor is paused for now. Register your interest.</title>
+		<meta
+			name="description"
+			content="Robotutor, the private AI tutor, is paused for now. Leave your email and we will write to you when it returns."
+		/>
+		<link rel="canonical" href="https://robotutor.ai/" />
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content="Robotutor" />
+		<meta property="og:url" content="https://robotutor.ai/" />
+		<meta property="og:title" content="Robotutor is paused for now" />
+		<meta
+			property="og:description"
+			content="The private AI tutor is taking a break. Leave your email and we will write to you when it returns."
+		/>
+		<meta property="og:image" content="https://robotutor.ai/assets/og.jpg" />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta
+			property="og:image:alt"
+			content="The Robotutor robot, small and purple with one round cyan eye, standing under a desk lamp."
+		/>
+		<meta name="twitter:card" content="summary_large_image" />
+		<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+		<link rel="preload" href="assets/fonts/nunito-variable.woff2" as="font" type="font/woff2" crossorigin />
+		<link rel="preload" href="assets/fonts/ibm-plex-serif-300-italic.woff2" as="font" type="font/woff2" crossorigin />
+		<link rel="stylesheet" href="assets/site.css" />
+		<script src="assets/config.js" defer></script>
+		<script src="assets/site.js" defer></script>
+	</head>
+	<body>
+		<a class="skip" href="#interest">Skip to the interest form</a>
+
+		<main>
+			<section class="hero" aria-labelledby="title">
+				<picture class="hero-art">
+					<source media="(max-width: 860px)" srcset="assets/robot-tall.jpg" width="960" height="1200" />
+					<img
+						src="assets/robot.jpg"
+						width="2400"
+						height="1340"
+						alt="The Robotutor robot: small and purple, with one round cyan eye, standing under a desk lamp with a pointer in its hand."
+					/>
+				</picture>
+
+				<div class="hero-copy">
+					<svg class="logo" role="img" aria-label="Robotutor" viewBox="96.3 62.4 268 38.7" width="180" height="26">
+						<path d="M96.3 96.2C96.3 98.2 97.9 99.8 99.9 99.8C101.9 99.8 103.5 98.2 103.5 96.2L99.9 96.2L96.3 96.2ZM111.4 88.3L111.4 84.7C109.9 84.7 108.6 85.6 108.0 86.9C107.5 88.3 107.8 89.8 108.8 90.9L111.4 88.3ZM117.7 99.7C119.1 101.1 121.4 101.1 122.8 99.7C124.2 98.3 124.2 96.0 122.8 94.6L120.2 97.2L117.7 99.7ZM99.9 96.2L103.5 96.2L103.5 76.5L99.9 76.5L96.3 76.5L96.3 96.2L99.9 96.2ZM99.9 76.5L103.5 76.5C103.5 72.6 106.5 69.6 110.4 69.6L110.4 66.0L110.4 62.4C102.5 62.4 96.3 68.6 96.3 76.5L99.9 76.5ZM110.4 66.0L110.4 69.6L115.0 69.6L115.0 66.0L115.0 62.4L110.4 62.4L110.4 66.0ZM115.0 66.0L115.0 69.6C119.2 69.6 122.5 72.9 122.5 77.2L126.2 77.2L129.8 77.2C129.8 68.9 123.2 62.4 115.0 62.4L115.0 66.0ZM126.2 77.2L122.5 77.2C122.5 81.4 119.2 84.7 115.0 84.7L115.0 88.3L115.0 91.9C123.2 91.9 129.8 85.4 129.8 77.2L126.2 77.2ZM115.0 88.3L115.0 84.7L111.4 84.7L111.4 88.3L111.4 91.9L115.0 91.9L115.0 88.3ZM111.4 88.3L108.8 90.9L117.7 99.7L120.2 97.2L122.8 94.6L113.9 85.8L111.4 88.3Z" fill="#fbfaf7" />
+						<path d="M112.7 80.4C114.7 80.4 116.3 78.8 116.3 76.8C116.3 74.8 114.7 73.2 112.7 73.2C110.7 73.2 109.1 74.8 109.1 76.8C109.1 78.8 110.7 80.4 112.7 80.4Z" fill="#f5fb9e" />
+						<text y="99.5" font-weight="700" font-size="52" letter-spacing="1" fill="#fbfaf7" aria-hidden="true"><tspan x="133">obotutor</tspan></text>
+					</svg>
+					<p class="kick">The private tutor</p>
+					<h1 id="title">Robotutor is paused for now.</h1>
+					<p class="lede">
+						The AI tutor that works with one student at a time is taking a break. Leave your email and we will write
+						to you when it returns.
+					</p>
+
+					<form
+						id="interest"
+						class="form"
+						method="post"
+						action="__ENDPOINT_ORIGIN__/interest"
+						aria-labelledby="form-title"
+						novalidate
+					>
+						<h2 id="form-title">Register your interest</h2>
+
+						<div class="field">
+							<label for="email">Email</label>
+							<input
+								id="email"
+								name="email"
+								type="email"
+								inputmode="email"
+								autocomplete="email"
+								autocapitalize="off"
+								spellcheck="false"
+								maxlength="254"
+								required
+								aria-describedby="email-error"
+							/>
+							<p id="email-error" class="error" hidden>Enter an email address, for example name@example.com.</p>
+						</div>
+
+						<div class="field">
+							<label for="name">Name <span class="optional">(optional)</span></label>
+							<input id="name" name="name" type="text" autocomplete="name" maxlength="100" />
+						</div>
+
+						<!-- Left empty by people; filled by form-filling bots. The Worker drops any entry that fills it. -->
+						<div class="trap" aria-hidden="true">
+							<label for="website">Leave this field empty</label>
+							<input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
+						</div>
+
+						<button type="submit">Tell me when it returns</button>
+						<p id="form-status" class="status" role="status" aria-live="polite"></p>
+
+						<p class="fine">
+							We keep your email, and your name if you give it, only to write to you about Robotutor's return. We do
+							not share them. To be removed from the list, write to
+							<a href="mailto:support@robotutor.ai">support@robotutor.ai</a>. This list is for people aged 18 or over.
+						</p>
+					</form>
+
+					<div id="thanks" class="thanks" tabindex="-1" hidden>
+						<h2>Thank you. You are on the list.</h2>
+						<p>We will write to you when Robotutor returns.</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- The film section stays hidden until the revised cut of the ad is approved; then add the two film files to assets/ and remove "hidden". -->
+			<section class="film" aria-labelledby="film-title" hidden>
+				<p class="kick">The film</p>
+				<h2 id="film-title">See the private tutor at work.</h2>
+				<div class="player">
+					<video
+						id="film"
+						controls
+						playsinline
+						preload="none"
+						poster="assets/film-poster.jpg"
+						width="1920"
+						height="1080"
+						aria-describedby="film-note"
+					>
+						<source src="assets/robotutor-private-tutor.mp4" type="video/mp4" />
+					</video>
+					<a id="film-cta" class="film-cta" href="#interest" hidden>Register your interest</a>
+				</div>
+				<p id="film-note" class="film-note">
+					A 32-second film with music and no narration. A small purple robot works beside one student at a desk: it
+					asks, it listens, and it stays until the student can explain the idea themselves.
+					<a href="#interest">Register your interest</a>
+				</p>
+			</section>
+		</main>
+
+		<footer class="foot">
+			<p>© 2026 Robotutor, by Weller Precision Industries</p>
+			<p><a href="mailto:support@robotutor.ai">support@robotutor.ai</a></p>
+		</footer>
+	</body>
+</html>
