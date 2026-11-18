@@ -3,7 +3,7 @@
 The placeholder page for Robotutor while the product is paused: the robot, a short "paused for now" message, an
 interest form, and the private tutor film. It is a plain static page (no build step) hosted free on GitHub Pages.
 
-© Weller Precision Industries. All rights reserved. The Robotutor name, logo, robot and film are not open source.
+© Robotutor, Inc. All rights reserved. The Robotutor name, logo, robot and film are not open source.
 The fonts in `docs/assets/fonts/` (Nunito, IBM Plex Serif, IBM Plex Mono) are under the SIL Open Font License.
 
 ## Layout
@@ -17,7 +17,8 @@ The fonts in `docs/assets/fonts/` (Nunito, IBM Plex Serif, IBM Plex Mono) are un
 
 ## Decisions (Cameron Weller, 2026-11-18)
 
-1. The private tutor ad is played on the page, and its end card names `robotutor.ai`.
+1. The private tutor ad is played on the page, and its end card names `robotutor.ai`. The film section is held back
+   until the revised (daylight) cut of the ad is approved; see "The film" below.
 2. Form entries are stored in Cameron's Cloudflare account (a free Worker and a D1 database), because GitHub
    Pages cannot receive form entries itself.
 3. `robotutor.ai` points to this page as soon as the page works end to end. The product's servers are left
@@ -64,5 +65,16 @@ cd worker && npx wrangler d1 execute robotutor-interest --local --file schema.sq
 
 ## Changing the page
 
-Edit the files in `docs/` and push to `main`; GitHub Pages republishes within a minute or two. To replace the
-film, overwrite `docs/assets/robotutor-private-tutor.mp4` and `docs/assets/film-poster.jpg`.
+Edit the files in `docs/` and push to `main`; GitHub Pages republishes within a minute or two.
+
+## The film
+
+The film section is not on the page yet. To add it: put the web encode at
+`docs/assets/robotutor-private-tutor.mp4` and a still at `docs/assets/film-poster.jpg`, and paste the
+`<section class="film">` block (kept beside this clone in `.pending/film-section.html`, which Git ignores) into
+`docs/index.html` where the comment marks its place. `site.js` and `site.css` already support it.
+
+## Look
+
+Paper white, ink and brand blue, with the robot in daylight, matching the daylight cut of the ad (Cameron,
+2026-11-18: brighter and more cerebral, never dark or ominous).
