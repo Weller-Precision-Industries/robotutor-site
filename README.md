@@ -76,3 +76,19 @@ The page plays cut 8 of the private tutor ad (42 s, approved by Cameron on 2026-
 
 Paper white, ink and brand blue, with the robot in daylight, matching the daylight cut of the ad (Cameron,
 2026-11-18: brighter and more cerebral, never dark or ominous).
+
+## Domain switch: state on 2026-11-18
+
+Cameron asked for `robotutor.ai` to be switched to this page "with session tools and mcps". It could not be done that
+day: the connected Cloudflare connector (`bindings.mcp.cloudflare.com`) has no DNS or Worker-deploy tools, the
+Cloudflare dashboard signs in through GitHub and needs his password, and no Cloudflare token exists on the machine.
+Cloudflare's full API connector (`https://mcp.cloudflare.com/mcp`) covers both DNS and Workers once he authorizes it.
+
+Steps when access exists (record the current records first):
+
+1. Deploy `worker/` and put its address into `docs/index.html` (three places) and `docs/assets/config.js`.
+2. Submit a labelled test entry from the github.io page and see it in D1; delete it.
+3. DNS: apex `A` records `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153` and `www` as
+   `CNAME` to `weller-precision-industries.github.io`, both DNS-only. Leave MX, TXT and every other record alone.
+4. Add `docs/CNAME` containing `robotutor.ai`, set the custom domain in the repository's Pages settings, and enforce
+   HTTPS once the certificate is issued.
