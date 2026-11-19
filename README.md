@@ -22,7 +22,7 @@ The fonts in `docs/assets/fonts/` (Nunito, IBM Plex Serif, IBM Plex Mono) are un
 2. Form entries are stored in Cameron's Cloudflare account (a free Worker and a D1 database), because GitHub
    Pages cannot receive form entries itself.
 3. `robotutor.ai` points to this page as soon as the page works end to end. The product's servers are left
-   running and untouched; shutting them down is a separate decision.
+   running and untouched; shutting them down is a separate decision. Switched on 2026-11-19.
 4. This repository is public and holds page files only, so Pages stays free on any GitHub plan.
 
 Added beyond the request: a privacy line, a success message, link-preview tags, a hidden field that catches
@@ -81,24 +81,27 @@ film's length (`docs/index.html`, the note under the player).
 Paper white, ink and brand blue, with the robot in daylight, matching the daylight cut of the ad (Cameron,
 2026-11-18: brighter and more cerebral, never dark or ominous).
 
-## Domain switch: state on 2026-11-18
+## Domain switch: done on 2026-11-19
 
-Cameron asked for `robotutor.ai` to be switched to this page "with session tools and mcps". It could not be done that
-day: the connected Cloudflare connector (`bindings.mcp.cloudflare.com`) has no DNS or Worker-deploy tools, the
-Cloudflare dashboard signs in through GitHub and needs his password, and no Cloudflare token exists on the machine.
-Cloudflare's full API connector (`https://mcp.cloudflare.com/mcp`) covers both DNS and Workers once he authorizes it.
+`robotutor.ai` serves this page. Cameron approved the exact records the same day ("Yes, both steps").
 
-A redirect through Railway was also considered and rejected the same day: `robotutor.ai` is a custom domain on the
-production `OLMS` service (CNAME `8kq1ib7z.up.railway.app`, verified). Moving it to another Railway service means
-removing it and adding it again, and Railway then asks for a new CNAME and a TXT verification record in DNS, which
-cannot be created without Cloudflare access; the domain would be left serving nothing, with no way back. Nothing was
-changed in Railway.
+| Record | Before | Now |
+|---|---|---|
+| `robotutor.ai` | `CNAME` to Railway (`8kq1ib7z.up.railway.app`), proxied | four `A` records: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`, DNS-only |
+| `www.robotutor.ai` | `CNAME` to Railway (`wtsmlubx.up.railway.app`), proxied | `CNAME` to `weller-precision-industries.github.io`, DNS-only |
+| `interest.robotutor.ai` | none | the form Worker's custom domain (Cloudflare creates and manages this record) |
 
-Steps when access exists (record the current records first):
+The five MX records and the seven TXT records (SPF, DKIM, DMARC, Google and Railway verification) were not touched.
+Nothing was changed in Railway: the product's servers still run and still have the domain attached; it just no
+longer points to them. To go back, restore the two `CNAME` records above (proxied) and remove the custom domain in
+the repository's Pages settings.
 
-1. Deploy `worker/` and put its address into `docs/index.html` (three places) and `docs/assets/config.js`.
-2. Submit a labelled test entry from the github.io page and see it in D1; delete it.
-3. DNS: apex `A` records `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153` and `www` as
-   `CNAME` to `weller-precision-industries.github.io`, both DNS-only. Leave MX, TXT and every other record alone.
-4. Add `docs/CNAME` containing `robotutor.ai`, set the custom domain in the repository's Pages settings, and enforce
-   HTTPS once the certificate is issued.
+GitHub Pages: custom domain `robotutor.ai` (`docs/CNAME`; GitHub itself commits "Create CNAME" / "Delete CNAME" when
+the setting changes), HTTPS enforced, certificate for `robotutor.ai` and `www.robotutor.ai`. `www`, plain `http` and
+the old `github.io` address all redirect to `https://robotutor.ai/`.
+
+What it took, for next time: the Cloudflare connector (`bindings.mcp.cloudflare.com`) has no DNS tools, so Cameron
+made an API token. In Cloudflare's token editor an **Account** policy does not cover a domain's records; the token
+also needs a **Zone** policy for `robotutor.ai` with DNS read and edit. The certificate was not requested while the
+domain was set before DNS pointed at GitHub; removing and re-adding the custom domain started it, and it was issued
+within a minute. A redirect through Railway had been considered on 2026-11-18 and rejected.
