@@ -6,7 +6,7 @@
 		<!-- The form endpoint appears three times: here (connect-src, form-action), in the form's action, and in assets/config.js. -->
 		<meta
 			http-equiv="Content-Security-Policy"
-			content="default-src 'none'; img-src 'self'; media-src 'self'; font-src 'self'; style-src 'self'; script-src 'self'; connect-src __ENDPOINT_ORIGIN__; form-action __ENDPOINT_ORIGIN__; base-uri 'none'"
+			content="default-src 'none'; img-src 'self'; media-src 'self'; font-src 'self'; style-src 'self'; script-src 'self'; connect-src https://interest.robotutor.ai; form-action https://interest.robotutor.ai; base-uri 'none'"
 		/>
 		<meta name="referrer" content="strict-origin-when-cross-origin" />
 		<meta name="color-scheme" content="light" />
@@ -72,7 +72,7 @@
 						id="interest"
 						class="form"
 						method="post"
-						action="__ENDPOINT_ORIGIN__/interest"
+						action="https://interest.robotutor.ai/interest"
 						aria-labelledby="form-title"
 						novalidate
 					>

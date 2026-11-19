@@ -47,11 +47,12 @@ Entries must never be copied into this repository or any other public place.
 
 ## The form endpoint
 
-The Worker's address appears in three places that must agree: the `Content-Security-Policy` tag and the form's
+The Worker is served at `https://interest.robotutor.ai` (a Cloudflare custom domain set in `worker/wrangler.jsonc`;
+its workers.dev address is switched off). That address appears in three places that must agree: the `Content-Security-Policy` tag and the form's
 `action` in `docs/index.html`, and `docs/assets/config.js`. The Worker accepts posts only from the origins in
 `ALLOWED_ORIGINS` (`worker/wrangler.jsonc`).
 
-Deploy the Worker (needs a Cloudflare sign-in on the machine):
+Deploy the Worker (needs a Cloudflare sign-in or API token on the machine; first deployed 2026-11-19):
 
 ```bash
 cd worker && npx wrangler deploy

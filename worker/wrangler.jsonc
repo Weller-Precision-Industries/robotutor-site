@@ -5,7 +5,9 @@
 	"name": "robotutor-interest",
 	"main": "index.js",
 	"compatibility_date": "2026-11-01",
-	"workers_dev": true,
+	// Served at interest.robotutor.ai only; the account's workers.dev address is switched off.
+	"workers_dev": false,
+	"routes": [{ "pattern": "interest.robotutor.ai", "custom_domain": true }],
 	"preview_urls": false,
 	"d1_databases": [
 		{
