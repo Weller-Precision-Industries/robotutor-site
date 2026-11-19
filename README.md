@@ -17,7 +17,8 @@ The fonts in `docs/assets/fonts/` (Nunito, IBM Plex Serif, IBM Plex Mono) are un
 
 ## Decisions (Cameron Weller, 2026-11-18)
 
-1. The private tutor ad is played on the page, and its end card names `robotutor.ai`. Cut 8 went onto the page on 2026-11-18.
+1. The private tutor ad is played on the page, and its end card names `robotutor.ai`. Cut 8 went onto the page on 2026-11-18;
+   the finished film (cut 15, one minute) replaced it on 2026-11-19.
 2. Form entries are stored in Cameron's Cloudflare account (a free Worker and a D1 database), because GitHub
    Pages cannot receive form entries itself.
 3. `robotutor.ai` points to this page as soon as the page works end to end. The product's servers are left
@@ -68,9 +69,11 @@ Edit the files in `docs/` and push to `main`; GitHub Pages republishes within a 
 
 ## The film
 
-The page plays cut 8 of the private tutor ad (42 s, approved by Cameron on 2026-11-18). To replace it, overwrite
-`docs/assets/robotutor-private-tutor.mp4` (a web encode: 1080p H.264, about 6 MB, `+faststart`) and
-`docs/assets/film-poster.jpg`.
+The page plays the finished private tutor film, cut 15 (59.75 s; Cameron declared it finished and asked for it to
+replace cut 8 on 2026-11-19). To replace it, overwrite `docs/assets/robotutor-private-tutor.mp4` (a web encode: 1080p
+H.264, `-crf 24 -preset slower`, AAC 128k, `+faststart`, about 8.7 MB) and, if the board scene changes,
+`docs/assets/film-poster.jpg` (a frame of the board scene, which cut 15 still contains). The page text states the
+film's length (`docs/index.html`, the note under the player).
 
 ## Look
 
