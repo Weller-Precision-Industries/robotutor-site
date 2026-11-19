@@ -84,6 +84,12 @@ day: the connected Cloudflare connector (`bindings.mcp.cloudflare.com`) has no D
 Cloudflare dashboard signs in through GitHub and needs his password, and no Cloudflare token exists on the machine.
 Cloudflare's full API connector (`https://mcp.cloudflare.com/mcp`) covers both DNS and Workers once he authorizes it.
 
+A redirect through Railway was also considered and rejected the same day: `robotutor.ai` is a custom domain on the
+production `OLMS` service (CNAME `8kq1ib7z.up.railway.app`, verified). Moving it to another Railway service means
+removing it and adding it again, and Railway then asks for a new CNAME and a TXT verification record in DNS, which
+cannot be created without Cloudflare access; the domain would be left serving nothing, with no way back. Nothing was
+changed in Railway.
+
 Steps when access exists (record the current records first):
 
 1. Deploy `worker/` and put its address into `docs/index.html` (three places) and `docs/assets/config.js`.
